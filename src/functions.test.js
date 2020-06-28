@@ -1,4 +1,4 @@
-/*
+/* 
 
    Welcome to JS Interation
 
@@ -14,19 +14,20 @@
 
 */
 
-/**
- * 1) Define a function named `yelling` that takes an array of
- * strings as an argument and returns a new array with all
- * the words forced to uppercase
- *
- * Example:
- *
- * const yelling = (array) => {
- *    // your code here
- * }
- */
-
-// ...
+//* 1) Define a function named `yelling` that takes an array of
+// * strings as an argument and returns a new array with all
+//* the words forced to uppercase
+//*/
+//* Example:
+//*
+function yelling(array) {
+  const upperCased = []
+  array.forEach(function(arrayItem) {
+    const upperCase = arrayItem.toUpperCase()
+    upperCased.push(upperCase)
+  })
+  return upperCased
+}
 
 /**
  *
@@ -34,30 +35,40 @@
  * numbers as an argument and returns a new array with all
  * the numbers multiplied by 2
  */
-
+function doubleTrouble(numbers) {
+  return numbers.map(x => x * 2)
+}
 // ...
 
-/*
- * 3) Define a function stringyIndexes() that takes an array of
+/* 3) Define a function stringyIndexes() that takes an array of
  * strings as an argument and returns a new array with each string
  * suffixed with " is at index X" where X is the index of the element
  */
 
-// ...
+function stringyIndexes(array) {
+  var answer = array.map((array, index) => `${array} is at index ${index}`)
+  return answer
+}
 
 /*
  * 4) Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
 
-// ...
+function onlyTheEvenSurvive(array) {
+  const even = array.filter(index => index % 2 === 0)
+  return even
+}
 
 /*
  * 5) Define a function onlyTheEvenIndexedSurvive that accepts an array of
  * numbers and returns only the elements at indexes that are even
  */
 
-// ...
+function onlyTheEvenIndexedSurvive(array) {
+  const even = array.filter((index, indexposition) => indexposition % 2 === 0)
+  return even
+}
 
 /*
  * 6)  Define a function bestMoviesOfTheYear that accepts an array of
@@ -66,12 +77,13 @@
  *
  * A movie object looks like this:
  *
- * {
- *   name: "Get Out",
- *   year: "2017",
- *   score: 99
- * }
- */
+ **/
+
+function bestMoviesOfTheYear(array, year) {
+  return array
+    .filter(movie => movie.score > 50 && movie.year === year)
+    .map(movie => movie.name)
+}
 
 // ...
 
@@ -81,7 +93,9 @@
  * odd.
  */
 
-// ...
+function everyoneIsOdd(array) {
+  return array.every(x => x % 2 != 0)
+}
 
 /*
  * 8) Define a function findTheNeedle that accepts an array of
@@ -89,23 +103,28 @@
  * `needle` inside
  */
 
-// ...
+function findTheNeedle(array) {
+  return array.find(string => string.includes('needle'))
+}
 
 /*
  * 9) Define a function findTheNeedleIndex that accepts an array of
  * strings and returns the index of the string that contains
  *  the word `needle` inside
  */
-
-// ...
-
+function findTheNeedleIndex(array) {
+  return array.findIndex(string => string.includes('needle'))
+  return
+}
 /*
  *` 10)  Define a function someoneToLove that accepts an array of
  * strings and returns true if at least one string is exactly
  * four characters long
  */
 
-// ...
+function someoneToLove(array) {
+  return array.some(string => string.length === 4)
+}
 
 /*
  * 11) Define a function mapYourself that accepts an array of
@@ -116,7 +135,13 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function mapYourself(array) {
+  let x = []
+  for (let y = 0; y < array.length; y++) {
+    x[y] = array[y] * 2
+  }
+  return x
+}
 
 /*
  * 12) Define a function filterYourself that accepts an
@@ -128,7 +153,15 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function filterYourself(array) {
+  let answer = []
+  for (let number = 0; number < array.length; number++) {
+    if (array[number] % 2 === 0) {
+      answer.push(array[number])
+    }
+  }
+  return answer
+}
 
 /*
  * 13) Define a function everyYourself that accepts an
@@ -140,7 +173,14 @@
  * So no using forEach, map, filter, reduce, etc.
  */
 
-// ...
+function everyYourself(array) {
+  for (let number = 0; number < array.length; number++) {
+    if (array[number] % 2 != 0) {
+      return false
+    }
+  }
+  return true
+}
 
 /**
  * NOTE: Don't modify anything below this line...
@@ -338,7 +378,8 @@ test('mapYourself()', t => {
   t.deepEqual(mapSecond, [18, 0, 2])
 })
 
-test('Function Check - filter yourself', t => ensureDefined(t, 'filterYourself'))
+test('Function Check - filter yourself', t =>
+  ensureDefined(t, 'filterYourself'))
 test('filterYourself()', t => {
   const original = Array.prototype.filter
 
